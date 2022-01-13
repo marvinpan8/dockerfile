@@ -1,0 +1,9 @@
+FROM marvinpan/python:3.0
+MAINTAINER marvinpan
+
+COPY config /home/jr/.kube/
+COPY kubectl /usr/local/bin/
+RUN chown jr:jr /home/jr/.kube/config \
+    && chown jr:jr /home/jr/.kube \
+    && chmod a+x /usr/local/bin/kubectl \
+    && chown jr:jr /usr/local/bin/kubectl
